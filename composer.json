@@ -1,0 +1,27 @@
+{
+    "name": "sandortibor89/singular",
+    "description": "PHP 7 MVC Framework",
+    "keywords": ["framework","micro","api","router"],
+    "type": "library",
+    "require": {
+        "slim/slim": "^4.1",
+        "slim/twig-view": "^2.5",
+        "slim/flash": "^0.4.0",
+        "illuminate/database": "^5.8",
+        "monolog/monolog": "^1.24"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sandortibor89",
+            "email": "munka@sandortibor.hu",
+            "homepage": "http://www.sandortibor.hu"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "app\\": "app",
+        "core\\": "core"
+      }
+    }
+}

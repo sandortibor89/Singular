@@ -1,0 +1,10 @@
+# Composer
+composer.lock
+/vendor/
+
+# OS
+.DS_Store
+
+# Singular
+/app/logs/
+/app/cache/
