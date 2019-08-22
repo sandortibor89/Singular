@@ -1,7 +1,7 @@
 <?php
 namespace core;
 
-abstract class Middleware {
+abstract class System {
 
     protected $container;
 
@@ -10,8 +10,10 @@ abstract class Middleware {
     }
 
     public function __get($property) {
-        if ($this->container->{$property}) {
-            return $this->container->{$property};
+        if ($this->container->has($property)) {
+            return $this->container->get($property);
+        } else {
+            return null;
         }
     }
 

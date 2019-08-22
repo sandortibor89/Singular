@@ -6,12 +6,13 @@
     "require": {
         "php": ">=7.1",
         "slim/slim": "^4.1",
-        "slim/psr7": "^0.4",
         "slim/twig-view": "^2.5",
         "slim/flash": "^0.4.0",
         "illuminate/database": "^5.8",
         "monolog/monolog": "^1.24",
-        "php-di/php-di": "^6.0"
+        "php-di/php-di": "^6.0",
+        "nyholm/psr7": "^1.1",
+        "nyholm/psr7-server": "^0.3.0"
     },
     "license": "MIT",
     "authors": [
@@ -28,6 +29,9 @@
       }
     },
     "scripts": {
-        "start": "php -S localhost:8080 -t public"
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "php -S localhost:8080 -t public"
+        ]
     }
 }

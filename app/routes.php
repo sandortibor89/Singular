@@ -1,3 +1,3 @@
 <?php
-$app->get('/', 'ExampleController:index')->add('ExampleMiddleware');
+$app->get('/', 'HomeController:index');
 ?>
