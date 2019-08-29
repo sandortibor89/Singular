@@ -1,7 +1,5 @@
 <?php
 namespace core;
 
-abstract class Controller extends System {
-
-}
+abstract class Controller extends System {}
 ?>

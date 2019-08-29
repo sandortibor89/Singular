@@ -4,7 +4,7 @@ return [
     'settings' => [
         'displayErrorDetails' => true,
         'logger' => [
-            'name' => 'slim-app',
+            'name' => 'singular',
             'path' => APP_DIR.DS.'logs'.DS.'app.log',
             'level' => Logger::DEBUG
         ],

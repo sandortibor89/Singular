@@ -1,7 +1,5 @@
 <?php
 namespace core;
 
-abstract class Model extends System {
-
-}
+abstract class Model extends System {}
 ?>
