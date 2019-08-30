@@ -23,5 +23,11 @@
         "app\\": "app",
         "core\\": "core"
       }
+    },
+    "scripts": {
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "php -S localhost:8080 -t public"
+        ]
     }
 }
