@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-if (version_compare(PHP_VERSION, '7.1', '<')) {
-    die("Upgrade your PHP version (".PHP_VERSION.") to 7.1 or newer!");
+if (version_compare(PHP_VERSION, '7.3', '<')) {
+    die("Upgrade your PHP version (".PHP_VERSION.") to 7.3 or newer!");
 }
 
 session_start();

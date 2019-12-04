@@ -4,26 +4,21 @@ declare(strict_types=1);
 // Files
 $files = [
     'composer_autoload' => VENDOR_DIR.DS.'autoload.php',
-    'settings'          => APP_DIR.DS.'settings.php',
-    'dependencies'      => APP_DIR.DS.'dependencies.php',
+    'whoops'            => CORE_DIR.DS.'whoops.php',
     'routes'            => APP_DIR.DS.'routes.php'
 ];
 
 // Composer load
 if (!file_exists($files['composer_autoload'])) {
-    die('The composer autoload file ('.$files['composer_autoload'].') load failed.');
+    die('The composer autoload file ('.$files['composer_autoload'].') not exists.');
 }
 require_once $files['composer_autoload'];
 
 // Whoops load
-$run = new \Whoops\Run;
-$handler = new \Whoops\Handler\PrettyPageHandler;
-$handler->setPageTitle("Singular error");
-$run->pushHandler($handler);
-if (\Whoops\Util\Misc::isAjaxRequest()) {
-    $run->pushHandler(new \Whoops\Handler\JsonResponseHandler);
+if (!file_exists($files['whoops'])) {
+    die('The whoops file ('.$files['whoops'].') not exists.');
 }
-$run->register();
+require_once $files['whoops'];
 
 /* FastRoute - start */
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
@@ -48,7 +43,7 @@ switch ($routeInfo[0]) {
         $handler->addDataTable('404 Page not found', [
             'url' => 'as'
         ]);
-        throw new Exception("Singular error");
+        throw new Exception("Singular application error");
         break;
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         $allowedMethods = $routeInfo[1];
