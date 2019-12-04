@@ -2,7 +2,7 @@
     "name": "sandortibor89/singular",
     "description": "PHP 7 MVC Framework",
     "type": "project",
-    "keywords": ["framework","micro","api","router"],
+    "keywords": ["framework","micro","api","router","mvc","php"],
     "license": "MIT",
     "require": {
         "php": ">=7.3.0",
