@@ -3,22 +3,43 @@ declare(strict_types=1);
 
 // Files
 $files = [
-    'composer_autoload' => VENDOR_DIR.DS.'autoload.php',
+    'composer' => VENDOR_DIR.DS.'autoload.php',
     'whoops'            => CORE_DIR.DS.'whoops.php',
-    'routes'            => APP_DIR.DS.'routes.php'
+    'system'            => CORE_DIR.DS.'system.php'
 ];
 
 // Composer load
-if (!file_exists($files['composer_autoload'])) {
-    die('The composer autoload file ('.$files['composer_autoload'].') not exists.');
+if (!file_exists($files['composer'])) {
+    die('The composer file ('.$files['composer'].') not exists.');
 }
-require_once $files['composer_autoload'];
+require_once $files['composer'];
 
-// Whoops load
-if (!file_exists($files['whoops'])) {
-    die('The whoops file ('.$files['whoops'].') not exists.');
+// System load
+if (!file_exists($files['system'])) {
+    die('The system file ('.$files['system'].') not exists.');
 }
-require_once $files['whoops'];
+require_once $files['system'];
+
+spl_autoload_register(function ($originalclass) {
+	$explode = explode('\\', $originalclass);
+	$class = strtolower(array_pop($explode));
+	if (count($explode) === 1 && in_array(reset($explode), ['model','controller'])) {
+		$directory = APP_SUB_DIR;
+	} else {
+		$directory = ROOT_DIR;
+	}
+	array_walk($explode, function(&$item, $key) {
+		$item = (!in_array($item, ['core','system'])) ? $item.'s' : $item;
+	});
+	$namespace = implode(DS, $explode);
+	$directory .= DS.$namespace;
+	$_class = $directory.DS.$class.'.php';
+    \core\System::require($_class);
+});
+
+\core\System::router();
+
+die;
 
 /* FastRoute - start */
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {

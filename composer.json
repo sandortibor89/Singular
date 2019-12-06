@@ -29,5 +29,11 @@
             "Composer\\Config::disableProcessTimeout",
             "php -S localhost:8080 -t public"
         ]
+    },
+    "autoload": {
+      "psr-4": {
+        "app\\": "app",
+        "core\\": "core"
+      }
     }
 }

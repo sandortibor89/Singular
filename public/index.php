@@ -16,5 +16,5 @@ define('APP_DIR', ROOT_DIR.DS.'app');
 define('CORE_DIR', ROOT_DIR.DS.'core');
 define('VENDOR_DIR', ROOT_DIR.DS.'vendor');
 
-require_once CORE_DIR.DS.'init.php';
+require_once CORE_DIR.DS.'system.init.php';
 ?>
