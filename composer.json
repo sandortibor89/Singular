@@ -1,0 +1,20 @@
+{
+    "name": "sandortibor89/singular",
+    "description": "PHP Micro Framework",
+    "type": "library",
+    "require": {
+        "twig/twig": "^3.0",
+        "nikic/fast-route": "^1.3",
+        "illuminate/database": "^7.11",
+        "monolog/monolog": "^2.0",
+        "filp/whoops": "^2.7",
+        "guzzlehttp/psr7": "^1.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sandortibor89",
+            "email": "tibikeh@gmail.com"
+        }
+    ]
+}
